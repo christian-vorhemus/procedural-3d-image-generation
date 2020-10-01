@@ -3,6 +3,10 @@ This is a PoC repository demonstrating how Blender can be leveraged to create sy
 
 <img src="sample.png" width="800" />
 
+### Scenario
+
+The goal of this project is to simulate a factory plant that produces pharmaceutical products. 
+
 ## How To
 
 ### Prerequisites
@@ -28,4 +32,8 @@ Run
   
  to start the pipeline. This will do the following:
  
- 1) 
+ 1) It produces a new image Wrapping.png based on Template.png with a random serial number and batch number.
+ 2) pipeline.py calls blender in a subshell and opens Package.blender. This file contains the base scene with a sample medicine package using Wrapping.png as image texture. Additionally, the script `blenderBackgroundTask.py` will be executed in Blender's context.
+ 3) `blenderBackgroundTask.py` adds random brush strokes ("DRAW") to the package that dent the package. The brush strokes follow a Bezier curve.
+ 4) Additionally, random variations to the location and rotation of the object are added
+ 5) Finally, two images of the same package are rendered: From the top and the side. 
