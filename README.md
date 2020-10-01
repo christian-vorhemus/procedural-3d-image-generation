@@ -7,7 +7,7 @@ This is a PoC (Proof-of-concept) repository demonstrating how Blender can be lev
 
 The goal of this project is to simulate a factory plant that produces pharmaceutical products. The machine used sometimes produces damaged packages that are dented. The packs move on a conveyor belt along an inspection line where two cameras are mounted (top and side). The goal is to find a machine learning model that can detect damaged and intact packages. This repository contains the code to create the dataset, it doesn not contain code for the machine learning model.
 
-## How To generate the dataset
+## How to generate the dataset
 
 ### Prerequisites
 Make sure the following software is installed on your computer:
