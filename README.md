@@ -21,7 +21,7 @@ Install python dependencies by opening up your command prompt or terminal and ty
   pip install -r requirements.txt
   ```
 
-Next open open `pipeline.py` in a text editor and change the output path (`file_base_path`) and the number of images (`num_images`) that should be produced. NOTE: Rendering images can take time, start with 1 or 2 to see if the result meets your expectations.
+Next open `pipeline.py` in a text editor and change the output path (`file_base_path`) and the number of images (`num_images`) that should be produced. NOTE: Rendering images can take time, start with 1 or 2 to see if the result meets your expectations.
 
 ### Run Pipeline
 
