@@ -10,7 +10,7 @@ The goal of this project is to simulate a factory plant that produces pharmaceut
 ## How To generate the dataset
 
 ### Prerequisites
-Make sure the following software installed on your computer:
+Make sure the following software is installed on your computer:
 
 - <a href="https://www.python.org/downloads/" target="_blank">Python</a> >= 3.6 (including pip)
 - <a href="https://www.blender.org/download/">Blender</a> >= 2.83
@@ -25,7 +25,7 @@ Next open open `pipeline.py` in a text editor and change the output path (`file_
 
 ### Run Pipeline
 
-Run 
+In a command prompt or terminal run
   ```
   python pipeline.py
   ```
