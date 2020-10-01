@@ -33,7 +33,7 @@ In a command prompt or terminal run
  to start the pipeline. This will do the following:
  
  1) It produces a new image Wrapping.png based on Template.png with a random serial number and batch number.
- 2) pipeline.py calls blender in a subshell and opens Package.blender. This file contains the base scene with a sample medicine package using Wrapping.png as image texture. Additionally, the script `blenderBackgroundTask.py` will be executed in Blender's context.
- 3) `blenderBackgroundTask.py` adds random brush strokes ("DRAW") to the package that dent the package. The brush strokes follow a random Bézier curve.
+ 2) pipeline.py calls Blender in a subshell and opens Package.blender. This file contains the base scene with a sample medicine package using Wrapping.png as image texture. Additionally, the script `blenderBackgroundTask.py` will be executed in Blender's context.
+ 3) `blenderBackgroundTask.py` adds brush strokes ("DRAW") to the package that dent the package. The brush strokes follow a random Bézier curve.
  4) Random variations to the location and rotation of the object are added
  5) Finally, two images of the same package are rendered and stored in the folders "damaged" and "intact": From the top and the side. The image names follow the schema {serial_number}_{camera_position}.png
