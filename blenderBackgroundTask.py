@@ -51,7 +51,7 @@ def get_points_in_range(min_x, min_y, max_x, max_y, num_points, z_point):
     return points
 
 # Applies brush strokes in blender based on the coordinates passed
-def sculpt(brush, coordinates, strength=0.5, pen_flip=True,):
+def sculpt(brush, coordinates, strength=0.5, pen_flip=True):
     bpy.ops.paint.brush_select(sculpt_tool=brush, toggle=False)
     bpy.data.brushes["SculptDraw"].strength = strength
     strokes = []
