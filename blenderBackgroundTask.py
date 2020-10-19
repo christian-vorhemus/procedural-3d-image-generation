@@ -5,9 +5,15 @@ import math
 import random
 import numpy as np
 import uuid
+import datetime
 
 argv = sys.argv
 argv = argv[argv.index("--") + 1:]
+
+package_serial_no = argv[1]
+file_base_path = argv[2]
+
+print(f"Started processing package {package_serial_no} at {datetime.datetime.now()}")
 
 def context_override():
     for window in bpy.context.window_manager.windows:
@@ -73,6 +79,7 @@ def sculpt(brush, coordinates, strength=0.5, pen_flip=True):
 
 # Change to Blender sculpt mode
 bpy.ops.sculpt.sculptmode_toggle()
+bpy.data.objects["Package"].select_set(True)
 bpy.context.scene.tool_settings.sculpt.use_symmetry_x = False
 
 package_type = argv[0]
@@ -80,9 +87,9 @@ if package_type not in ["damaged", "intact"]:
     raise Exception("First argument must be either 'damaged' or 'intact'")
 
 if package_type == "damaged":
-    # If package is damaged, we add 5 pressure strokes with medium strength
-    for i in range(0,5):
-        strength = np.random.normal(0.6, 0.05)
+    # If package is damaged, we add 3 pressure strokes with medium strength
+    for i in range(0,3):
+        strength = np.random.normal(0.35, 0.05)
         points = get_points_in_range(-0.05, -0.025, 0.05, 0.025, 10, 0.015)
         sculpt("DRAW", points, strength)
 else:
@@ -104,11 +111,12 @@ frame_no = random.randint(1, 8)
 bpy.context.scene.frame_set(frame_no)
 
 bpy.context.scene.render.engine = 'CYCLES'
+bpy.context.scene.render.image_settings.color_mode = 'RGB'
 bpy.context.scene.render.resolution_x = 960
 bpy.context.scene.render.resolution_y = 540
 
-package_serial_no = argv[1]
-file_base_path = argv[2]
+bpy.data.objects['Camera.Side'].data.dof.aperture_fstop = np.random.normal(16, 3)
+bpy.data.objects['Camera.Top'].data.dof.aperture_fstop = np.random.normal(16, 3)
 
 for i, cam in enumerate([obj for obj in bpy.data.objects if obj.type == 'CAMERA']):
     if cam.name == "Camera.Side":
@@ -121,4 +129,5 @@ for i, cam in enumerate([obj for obj in bpy.data.objects if obj.type == 'CAMERA'
     bpy.context.scene.render.filepath = file_path
     bpy.ops.render.render(write_still = True)
 
+print(f"Finished processing package {package_serial_no} at {datetime.datetime.now()}")
 bpy.ops.wm.quit_blender()
